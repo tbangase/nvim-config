@@ -6,6 +6,18 @@ Plug 'Shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 
+" Setting for NeoSnippets
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " Initialize plugin system
 call plug#end()
@@ -20,6 +32,11 @@ map <C-n> :NERDTreeToggle<CR>
 
 set statusline+=%{fugitive#statusline()}
 
+let g:neosnippet#snippets_directory='~/.config/nvim/Neosnippets'
+
+imap <TAB>     <Plug>(neosnippet_expand_or_jump)
+smap <TAB>     <Plug>(neosnippet_expand_or_jump)
+xmap <TAB>     <Plug>(neosnippet_expand_target)
 
 " タイトルを表示
 set title
