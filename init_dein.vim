@@ -1,25 +1,38 @@
-call plug#begin('~/.nvim/plugged')
-" Make sure you use single quotes
+if &compatible
+  set nocompatible " Be iMproved
+endif
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/unite.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
+" Required:
+" Add the dein installation directory into runtimepath
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let s:toml_dir = expand('~/.config/nvim')
+" set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin(s:dein_dir)
+" Let dein manage dein
+call dein#add(s:dein_repo_dir)
+call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
+call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
+		
+" Add or remove your plugins here like this:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+		
+" Required:
+call dein#end()
 
 
-" Initialize plugin system
-call plug#end()
+" Required:
+filetype plugin indent on
+syntax enable
 
-autocmd QuickFixCmdpost *grep* cwindow
-
-autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree
-
-map <C-n> :NERDTreeToggle<CR>
-
-set statusline+=%{fugitive#statusline()}
-
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+ call dein#install()
+endif
 
 " タイトルを表示
 set title
@@ -40,7 +53,6 @@ set autoindent
 set virtualedit=block
 set backspace=indent,eol,start
 set wildmenu
-set cursorline
 " 括弧入力時の対応する括弧を表示
 set showmatch
 set matchtime=1
@@ -53,13 +65,13 @@ set statusline+=[%{&fileformat}]
 set statusline+=%y
 set clipboard+=unnamed
 set printoptions=number:y
-inoremap { {}<LEFT>
+inoremap {<Space> {}<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
+inoremap [<Space> []<LEFT>
+inoremap (<Space> ()<LEFT>
 inoremap <<Space> <><LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
+inoremap "<Space> ""<LEFT>
+inoremap '<Space> ''<LEFT>
 
 "For HTML
 "inoremap a<Enter> <a></a><LEFT><LEFT><LEFT><LEFT>
