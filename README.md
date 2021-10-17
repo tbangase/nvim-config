@@ -18,3 +18,11 @@ Install coc_snippet
 ```
 :CocInstall coc-snippets
 ```
+
+## Setting for rust-analyzer
+Install rust-analyzer
+```
+:CocInstall coc-rust-analyzer
+```
+
+

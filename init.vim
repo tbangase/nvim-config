@@ -18,6 +18,16 @@ let g:deoplete#enable_at_startup = 1
 
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'kylef/apiblueprint.vim'
+
+" Setting for LanguageClient-neovim
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" (Optional) Multi-entry selection UI.
+Plug 'junegunn/fzf'
 
 " Initialize plugin system
 call plug#end()
@@ -32,16 +42,29 @@ map <C-n> :NERDTreeToggle<CR>
 
 set statusline+=%{fugitive#statusline()}
 
-let g:neosnippet#snippets_directory='~/.config/nvim/Neosnippets'
+" let g:neosnippet#snippets_directory='~/.config/nvim/Neosnippets'
 
-imap <TAB>     <Plug>(neosnippet_expand_or_jump)
-smap <TAB>     <Plug>(neosnippet_expand_or_jump)
-xmap <TAB>     <Plug>(neosnippet_expand_target)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" LanguageClient Setting
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rust-analyzer'],
+    \ }
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
 
 " タイトルを表示
 set title
 set ttyfast
-set pumblend=10
+" set pumblend=10
 colorscheme hybrid
 " 検索文字列が小文字の場合は大文字小文字の区別なく検索する"
 set ignorecase
@@ -49,6 +72,7 @@ set ignorecase
 set number
 set ruler
 set mouse=a
+set nowrap
 "set ttymouse=xterm2
 set tabstop=2
 set shiftwidth=2
