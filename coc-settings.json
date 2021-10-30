@@ -2,5 +2,8 @@
 	"rust-analyzer.enable": true,
 	"coc.preferences.formatOnSaveFiletypes": [
 		"rust"
-	]
+	],
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true
+
 }
