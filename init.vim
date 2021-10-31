@@ -4,7 +4,6 @@ call plug#begin('~/.nvim/plugged')
 Plug 'jacoborus/tender.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/unite.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'cespare/vim-toml'
 " Setting for NeoSnippets
@@ -31,6 +30,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
+" Setup for flutter
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+Plug 'natebosch/dartlang-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Initialize plugin system
 call plug#end()
 
@@ -53,9 +59,16 @@ set statusline+=%{fugitive#statusline()}
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rust-analyzer'],
-    \ }
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-json',
+  \ 'coc-flutter',
+  \ 'coc-snippets',
+  \ 'coc-yaml',
+  \ 'coc-rust-analyzer',
+  \ ]
 
 let g:airline_theme = 'tender'
 
@@ -106,7 +119,7 @@ set cursorline
 set showmatch
 set matchtime=1
 set laststatus=2
-set whichwrap=b,s,<,>,[,]
+set whichwrap=h,l,b,s,<,>,[,]
 set incsearch
 set statusline+=%{matchstr(hostname(),'\\w\\+')}@
 set statusline+=%<%F

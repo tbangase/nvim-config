@@ -1,5 +1,11 @@
 # Setting Nvim environment from zero base.
 
+## Required
+- neovim installed
+- npm installed
+- node installed
+- curl installed
+
 ## Initial Setting
 Place this repo to 
 ```
