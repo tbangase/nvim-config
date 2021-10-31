@@ -40,6 +40,7 @@ function SetBottomWorkspace()
   CocDiagnostics
   vs
   te
+  winc k
 endfunction
 
 set statusline+=%{fugitive#statusline()}
