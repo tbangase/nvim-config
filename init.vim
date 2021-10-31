@@ -6,18 +6,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/unite.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'cespare/vim-toml'
-" Setting for NeoSnippets
-""if has('nvim')
-""  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-""else
-""  Plug 'Shougo/deoplete.nvim'
-""  Plug 'roxma/nvim-yarp'
-""  Plug 'roxma/vim-hug-neovim-rpc'
-""endif
-""let g:deoplete#enable_at_startup = 1
 
-""Plug 'Shougo/neosnippet.vim'
-""Plug 'Shougo/neosnippet-snippets'
 Plug 'kylef/apiblueprint.vim'
 
 Plug 'github/copilot.vim'
@@ -45,17 +34,9 @@ autocmd QuickFixCmdpost *grep* cwindow
 
 autocmd vimenter * CocCommand explorer --width 30
 autocmd StdinReadPre * let s:std_in=1
-"autocmd vimenter * CocDiagnostics
 
 set statusline+=%{fugitive#statusline()}
 
-" let g:neosnippet#snippets_directory='~/.config/nvim/Neosnippets'
-
-""imap <C-k> <Plug>(neosnippet_expand_or_jump)
-""smap <C-k> <Plug>(neosnippet_expand_or_jump)
-""xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" LanguageClient Setting
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
@@ -68,6 +49,7 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-yaml',
   \ 'coc-rust-analyzer',
+  \ 'coc-sourcekit',
   \ ]
 
 let g:airline_theme = 'tender'
@@ -80,7 +62,6 @@ if (has("termguicolors"))
 endif
 
 "Key mappings"
-
 map <silent> <C-n> :CocCommand explorer<CR>
 
 map <silent> gd <Plug>(coc-definition)
@@ -92,7 +73,11 @@ map <silent> ga <Plug>(coc-codeaction)
 nmap <C-p> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
 
-" タイトルを表示
+inoremap jj <ESC>
+
+" Custom settings
+
+"タイトルを表示
 set title
 set ttyfast
 " set pumblend=10
