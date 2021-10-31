@@ -35,6 +35,13 @@ autocmd QuickFixCmdpost *grep* cwindow
 autocmd vimenter * CocCommand explorer --width 30
 autocmd StdinReadPre * let s:std_in=1
 
+function SetBottomWorkspace()
+  winc l
+  CocDiagnostics
+  vs
+  te
+endfunction
+
 set statusline+=%{fugitive#statusline()}
 
 " Required for operations modifying multiple buffers like rename.
