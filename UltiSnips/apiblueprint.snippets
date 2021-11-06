@@ -1,0 +1,73 @@
+snippet 'endpoint' "Add Endpoint"
+## ${1:EndpointName} [/api/v1/${2:path}]
+endsnippet
+snippet 'get' "Add GET method" 
+### ${1:MethodName} [GET]
+## Introduction
+${2:Description}
+
+endsnippet
+snippet 'post' "Add POST method" 
+### ${1:MethodName} [POST]
+## Introduction
+${2:Description}
+
+endsnippet
+snippet 'patch' "Add PATCH method" 
+### ${1:MethodName} [PATCH]
+## Introduction
+${2:Description}
+
+endsnippet
+snippet 'delete' "Add DELETE method" 
+### ${1:MethodName} [DELETE]
+## Introduction
+${2:Description}
+
+endsnippet
+snippet 'reqh' "Add Request with Headers" 
++ Request (application/json)
+
+	+ Headers
+
+			Authorization: {Bearer token}
+
+endsnippet
+snippet 'reqresh' "Add Request with Headers and Response" 
++ Request (application/json)
+
+	+ Headers
+
+			Authorization: {Bearer token}
+
++ Response 200 (application/json)
+
+	+ Attributes (${1:type}, fixed-type)
+
+endsnippet
+snippet 'headers' "Add Headers" 
++ Headers
+
+		Authorization: {Bearer token}
+
+endsnippet
+snippet 'attributes' "Add attributes" 
++ Attributes (${1:type}, required)
+endsnippet
+snippet 'keyvalue' "Add a datum for JSON" 
++ ${1:name}: ${2:example}(${3:type}, required) - ${4:description}
+endsnippet
+snippet 'listitem' "Add a datum for JSON" 
++ ${1:item_example}(${2:type})
+endsnippet
+snippet 'datastructure' "Create Datastructure Area" 
+## Data Structures
+
+### ${1:Object}
+endsnippet
+snippet 'datetime' "Create sample datetime" 
+2021-10-14T09:54:43.991Z
+endsnippet
+snippet 'comment' "Comment out" 
+<!-- $1 -->
+endsnippet

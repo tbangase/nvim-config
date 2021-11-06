@@ -25,12 +25,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```
 This installs coc.nvim, coc-rs, and others.
 
-## Setting Snippets
-Install coc_snippet
-```
-:CocInstall coc-snippets
-```
-
 ## Setting for rust-analyzer
 Install rust-analyzer
 ```
@@ -39,18 +33,7 @@ cd rust-analyzer
 cargo xtask install --server
 ```
 
-Install coc.nvim plugin for rust-analyzer
-```
-:CocInstall coc-rust-analyzer
-```
-
-## Install coc-explorer
-coc-explorer is folder explorer plugin like vscode.
-```
-:CocInstall coc-explorer
-```
-
-## Or Install Nerd Fonts
+## Install Nerd Fonts
 ```
 git clone --branch=master --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 cd nerd-fonts
@@ -59,4 +42,17 @@ cd ..
 rm -fr nerd-fonts
 ```
 
+# Tips
+## Snippets
+### How to change to next input when use snippets.
+```
+<C-j>
+```
+This brings to next input.
+
+### How to add custom snippets
+```
+:UltiSnipsEdit
+```
+This brings to custom snippet file of opening filetype.
 

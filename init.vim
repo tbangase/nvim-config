@@ -10,6 +10,7 @@ Plug 'cespare/vim-toml'
 Plug 'kylef/apiblueprint.vim'
 
 Plug 'github/copilot.vim'
+Plug 'guns/xterm-color-table.vim'
 
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'
@@ -64,17 +65,19 @@ let g:airline_theme = 'tender'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 if (has("termguicolors"))
  set termguicolors
 endif
 
 "Key mappings"
-map <silent> <C-n> :CocCommand explorer<CR>
+map <silent> <C-m> :CocCommand explorer<CR>
 
 map <silent> gd <Plug>(coc-definition)
-map <silent> gr <Plug>(coc-reference)
-map <silent> [g <Plug>(coc-diagnostic-prev)
+map <silent> gi <Plug>(coc-implementation)
+map <silent> gr <Plug>(coc-references)
+map <silent> [g <Plug>(coc-diagnostic-next)
 map <silent> ]g <Plug>(coc-diagnostic-prev)
 map <silent> ga <Plug>(coc-codeaction)
 
@@ -84,12 +87,15 @@ nmap <C-n> <Plug>AirlineSelectNextTab
 inoremap jj <ESC>
 
 " Custom settings
+command! -nargs=0 Format :call CocAction('format')
 
 "タイトルを表示
 set title
 set ttyfast
 " set pumblend=10
 syntax enable
+autocmd ColorScheme * highlight LineNr ctermfg=37 guifg=#00afaf 
+autocmd ColorScheme * highlight Comment ctermfg=249 guifg=#b2b2b2
 colorscheme tender
 " 検索文字列が小文字の場合は大文字小文字の区別なく検索する"
 set ignorecase
@@ -130,6 +136,7 @@ inoremap ' ''<LEFT>
 inoremap <C-h> <esc>vb
 inoremap <C-l> <esc>ve
 tnoremap <esc> <C-\><C-n>
+nnoremap <S-e> $
 
 "For HTML
 "inoremap a<Enter> <a></a><LEFT><LEFT><LEFT><LEFT>
@@ -141,6 +148,6 @@ tnoremap <esc> <C-\><C-n>
 "inoremap ul<Enter> <ul></ul><LEFT><LEFT><LEFT><LEFT><LEFT>
 "inoremap div<Enter> <div></div><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
-"For Django"
+"For Django Jinja Template"
 inoremap {% {%%}<LEFT><LEFT>
 
