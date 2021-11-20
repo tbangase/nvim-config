@@ -75,6 +75,7 @@ endif
 map <silent> <C-m> :CocCommand explorer<CR>
 
 map <silent> gd <Plug>(coc-definition)
+map <silent> gt <Plug>(coc-type-definition)
 map <silent> gi <Plug>(coc-implementation)
 map <silent> gr <Plug>(coc-references)
 map <silent> [g <Plug>(coc-diagnostic-next)
@@ -126,6 +127,12 @@ set statusline+=[%{&fileformat}]
 set statusline+=%y
 set clipboard+=unnamed
 set printoptions=number:y
+
+set list
+set listchars=tab:>-
+
+set foldmethod=indent
+
 inoremap { {}<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [ []<LEFT>
