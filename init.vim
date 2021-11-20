@@ -28,7 +28,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Setup for Debugging
-Plugin 'puremourning/vimspector'
+Plug 'puremourning/vimspector'
 
 " Initialize plugin system
 call plug#end()
