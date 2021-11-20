@@ -27,6 +27,9 @@ Plug 'natebosch/dartlang-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Setup for Debugging
+Plugin 'puremourning/vimspector'
+
 " Initialize plugin system
 call plug#end()
 
