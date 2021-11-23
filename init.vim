@@ -49,6 +49,7 @@ function InitWorkspace()
   CocDiagnostics
   vs
   te
+  IndentLinesDisable
   winc k
 endfunction
 
