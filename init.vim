@@ -30,6 +30,9 @@ Plug 'honza/vim-snippets'
 " Setup for Debugging
 Plug 'puremourning/vimspector'
 
+" Visualize Space Indents
+Plug 'Yggdroot/indentLine'
+
 " Initialize plugin system
 call plug#end()
 
@@ -39,13 +42,17 @@ autocmd QuickFixCmdpost *grep* cwindow
 autocmd vimenter * CocCommand explorer --width 30
 autocmd StdinReadPre * let s:std_in=1
 
-function SetBottomWorkspace()
+function InitWorkspace()
+  winc h
+  IndentLinesDisable
   winc l
   CocDiagnostics
   vs
   te
   winc k
 endfunction
+
+autocmd vimenter * command InitWorkspace call InitWorkspace()
 
 set statusline+=%{fugitive#statusline()}
 
@@ -74,6 +81,21 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
+" Settings for Debugging - Vimspector
+let mapleader = " " 
+let g:vimspector_enable_mappings = 'HUMAN'
+nmap <leader>vl :call vimspector#Launch()<CR>
+nmap <leader>vx :VimspectorReset<CR>
+nmap <leader>ve :VimspectorEval
+nmap <leader>vw :VimspectorWatch
+nmap <leader>vo :VimspectorShowOutput
+nmap <leader>bb :call vimspector#ToggleBreakpoint()<CR>
+nmap <leader>bad :call vimspector#ClearBreakpoints()<CR>
+nmap <leader>n  :call vimspector#StepOver()<CR>
+nmap <leader>i  :call vimspector#StepInto()<CR>
+nmap <leader>o  :call vimspector#StepOut()<CR>
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB' ]
+
 "Key mappings"
 map <silent> <C-m> :CocCommand explorer<CR>
 
@@ -93,6 +115,11 @@ inoremap jj <ESC>
 " Custom settings
 command! -nargs=0 Format :call CocAction('format')
 
+" IndentLine Settings
+" Colors
+let g:indentLine_color_term = 39
+let g:indentLine_color_gui = '#00afff'
+
 "タイトルを表示
 set title
 set ttyfast
@@ -101,6 +128,8 @@ syntax enable
 autocmd ColorScheme * highlight LineNr ctermfg=37 guifg=#00afaf 
 autocmd ColorScheme * highlight Comment ctermfg=249 guifg=#b2b2b2
 colorscheme tender
+
+
 " 検索文字列が小文字の場合は大文字小文字の区別なく検索する"
 set ignorecase
 " 行番号を表示
@@ -112,12 +141,13 @@ set nowrap
 "set ttymouse=xterm2
 set tabstop=2
 set shiftwidth=2
-set expandtab
 set autoindent
 set virtualedit=block
 set backspace=indent,eol,start
 set wildmenu
 set cursorline
+set expandtab
+"set noexpandtab
 " 括弧入力時の対応する括弧を表示
 set showmatch
 set matchtime=1
@@ -147,16 +177,6 @@ inoremap <C-h> <esc>vb
 inoremap <C-l> <esc>ve
 tnoremap <esc> <C-\><C-n>
 nnoremap <S-e> $
-
-"For HTML
-"inoremap a<Enter> <a></a><LEFT><LEFT><LEFT><LEFT>
-"inoremap p<Enter> <p></p><LEFT><LEFT><LEFT><LEFT>
-"inoremap h1<Enter> <h1></h1><LEFT><LEFT><LEFT><LEFT><LEFT>
-"inoremap h2<Enter> <h2></h2><LEFT><LEFT><LEFT><LEFT><LEFT>
-"inoremap h3<Enter> <h3></h3><LEFT><LEFT><LEFT><LEFT><LEFT>
-"inoremap li<Enter> <li></li><LEFT><LEFT><LEFT><LEFT><LEFT>
-"inoremap ul<Enter> <ul></ul><LEFT><LEFT><LEFT><LEFT><LEFT>
-"inoremap div<Enter> <div></div><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
 "For Django Jinja Template"
 inoremap {% {%%}<LEFT><LEFT>
