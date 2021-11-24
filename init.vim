@@ -50,7 +50,7 @@ function InitWorkspace()
   vs
   te
   IndentLinesDisable
-  winc k
+  winc h
 endfunction
 
 autocmd vimenter * command InitWorkspace call InitWorkspace()
@@ -118,8 +118,10 @@ command! -nargs=0 Format :call CocAction('format')
 
 " IndentLine Settings
 " Colors
-let g:indentLine_color_term = 39
-let g:indentLine_color_gui = '#00afff'
+let g:indentLine_color_term = 244
+let g:indentLine_color_gui = '#808080'
+"let g:indentLine_defaultGroup = 'WarningMsg'
+
 
 "タイトルを表示
 set title
