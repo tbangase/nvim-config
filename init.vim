@@ -173,7 +173,7 @@ inoremap { {}<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
-inoremap <<Space> <><LEFT>
+inoremap <> <><LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 inoremap <C-h> <esc>vb
