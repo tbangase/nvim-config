@@ -112,6 +112,7 @@ nmap <C-p> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
 
 inoremap jj <ESC>
+inoremap kk <ESC><RIGHT>a
 
 " Custom settings
 command! -nargs=0 Format :call CocAction('format')
