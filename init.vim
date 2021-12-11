@@ -133,6 +133,13 @@ autocmd ColorScheme * highlight LineNr ctermfg=37 guifg=#00afaf
 autocmd ColorScheme * highlight Comment ctermfg=249 guifg=#b2b2b2
 colorscheme tender
 
+highlight Normal ctermbg=none guibg = none
+highlight NonText ctermbg=none guibg = none
+highlight LineNr ctermbg=none guibg = none
+highlight CursorLine ctermbg=none guibg = none
+highlight Folded ctermbg=none guibg = none
+highlight VertSplit ctermbg=none guibg = none
+highlight EndOfBuffer ctermbg=none  guibg = none
 
 " 検索文字列が小文字の場合は大文字小文字の区別なく検索する"
 set ignorecase
@@ -184,4 +191,5 @@ nnoremap <S-e> $
 
 "For Django Jinja Template"
 inoremap {% {%%}<LEFT><LEFT>
+
 
