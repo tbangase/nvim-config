@@ -42,6 +42,8 @@ cd ..
 rm -fr nerd-fonts
 ```
 
+Please notice to use font `SauceCodePro Nerd Font` in your terminal
+
 # Tips
 ## Snippets
 ### How to change to next input when use snippets.
