@@ -62,6 +62,7 @@ set hidden
 
 let g:coc_global_extensions = [
   \ 'coc-snippets',
+  \ 'coc-explorer',
   \ 'coc-tsserver',
   \ 'coc-eslint',
   \ 'coc-json',
@@ -189,6 +190,10 @@ inoremap <C-h> <esc>vb
 inoremap <C-l> <esc>ve
 tnoremap <esc> <C-\><C-n>
 nnoremap <S-e> $
+
+"Using Regular Expression"
+nnoremap / /\v
+cnoremap %s/ %s/\v
 
 "For Django Jinja Template"
 inoremap {% {%%}<LEFT><LEFT>
