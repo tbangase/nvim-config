@@ -26,6 +26,7 @@ Plug 'thosakwe/vim-flutter'
 Plug 'natebosch/dartlang-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'tomlion/vim-solidity'
 
 " Setup for Debugging
 Plug 'puremourning/vimspector'
@@ -72,6 +73,7 @@ let g:coc_global_extensions = [
   \ 'coc-rust-analyzer',
   \ 'coc-sourcekit',
   \ ]
+"  \ 'coc-solidity',
 
 let g:airline_theme = 'tender'
 
