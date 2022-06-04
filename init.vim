@@ -72,6 +72,7 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-rust-analyzer',
   \ 'coc-sourcekit',
+  \ 'coc-jedi',
   \ ]
 "  \ 'coc-solidity',
 
