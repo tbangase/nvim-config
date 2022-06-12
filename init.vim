@@ -28,6 +28,10 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tomlion/vim-solidity'
 
+" Plugin for React
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
 " Setup for Debugging
 Plug 'puremourning/vimspector'
 
