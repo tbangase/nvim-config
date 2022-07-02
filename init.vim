@@ -32,6 +32,9 @@ Plug 'tomlion/vim-solidity'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
+" Plugin for Python
+Plug 'neomake/neomake'
+
 " Setup for Debugging
 Plug 'puremourning/vimspector'
 
@@ -59,6 +62,7 @@ function InitWorkspace()
 endfunction
 
 autocmd vimenter * command InitWorkspace call InitWorkspace()
+autocmd! BufEnter,BufWritePost * Neomake
 
 set statusline+=%{fugitive#statusline()}
 
@@ -74,6 +78,7 @@ let g:coc_global_extensions = [
   \ 'coc-flutter',
   \ 'coc-snippets',
   \ 'coc-yaml',
+  \ 'coc-html',
   \ 'coc-rust-analyzer',
   \ 'coc-sourcekit',
   \ 'coc-jedi',
@@ -85,6 +90,8 @@ let g:airline_theme = 'tender'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+
+let g:neomake_python_enabled_makers = ['python', 'flake8', 'mypy']
 
 if (has("termguicolors"))
  set termguicolors
