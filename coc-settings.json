@@ -1,7 +1,21 @@
 {
 	"rust-analyzer.enable": true,
+  "rust-analyzer.linkedProjects": [
+    "./Cargo.toml"
+  ],
 	"coc.preferences.formatOnSaveFiletypes": [
-		"apiblueprint"
+		"apiblueprint",
+    "rust",
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "graphql",
+    "css",
+    "html",
+    "markdown",
+    "dart"
 	],
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
