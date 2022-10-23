@@ -64,6 +64,11 @@ Plug 'Yggdroot/indentLine'
 " Initialize plugin system
 call plug#end()
 
+" Pathogen
+execute pathogen#infect()
+
+" Read another setting files
+source ~/.config/nvim/fzf.vim
 
 autocmd QuickFixCmdpost *grep* cwindow
 
@@ -78,7 +83,7 @@ function InitWorkspace()
   vsplit                " Split the pane vertically
   terminal              
   IndentLinesDisable    " Disable indent lines in terminal
-  winc h                " Move to the left pane
+  winc k                " Move to the left pane
 endfunction
 
 autocmd vimenter * command InitWorkspace call InitWorkspace()
@@ -155,6 +160,9 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 let g:neomake_python_enabled_makers = ['python', 'flake8', 'mypy']
 
+let g:blamer_template = '<committer>, <committer-time> • <summary> [ <commit-short> ]'
+let g:blamer_date_format = '%Y-%m-%d %H:%M'
+
 if (has("termguicolors"))
  set termguicolors
 endif
@@ -211,6 +219,9 @@ nmap <silent> <CR> :CocCommand explorer<CR>
 
 inoremap jj <ESC>
 inoremap kk <ESC><RIGHT>a
+
+nnoremap <S-l> ]m
+nnoremap <S-h> [m
 
 " For Flutter
 nnoremap <leader>fa :FlutterRun<cr>
