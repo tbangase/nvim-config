@@ -1,73 +1,11 @@
-call plug#begin('~/.nvim/plugged')
-" Make sure you use single quotes
+" Load Plugin config
+source ~/.config/nvim/plugins.vim
 
-Plug 'jacoborus/tender.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/unite.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'cespare/vim-toml'
-
-Plug 'kylef/apiblueprint.vim'
-
-Plug 'github/copilot.vim'
-Plug 'APZelos/blamer.nvim'
-Plug 'guns/xterm-color-table.vim'
-
-" (Optional) Multi-entry selection UI.
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
-" Very cool airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tbangase/preview-markdown.vim'
-
-" File Search
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" Setup for flutter
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
-Plug 'natebosch/dartlang-snippets'
-Plug 'reisub0/hot-reload.vim'
-
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'tomlion/vim-solidity'
-
-" Plugins for React
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'styled-components/vim-styled-components'
-
-Plug 'tpope/vim-commentary'
-
-" Plugins for Rust
-Plug 'rust-lang/rust.vim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'simrat39/rust-tools.nvim'
-
-"" Debugging
-Plug 'nvim-lua/plenary.nvim'
-Plug 'mfussenegger/nvim-dap'
-
-" Plugins for Python
-Plug 'neomake/neomake'
-
-" Setup for Debugging
-Plug 'puremourning/vimspector'
-
-" Visualize Space Indents
-Plug 'Yggdroot/indentLine'
-
-" Initialize plugin system
-call plug#end()
-
-" Pathogen
+" Load Pathogen
+" ( It might be better to use vim-plug instead of pathogen )
 execute pathogen#infect()
 
-" Read another setting files
+" Load FZF config
 source ~/.config/nvim/fzf.vim
 
 autocmd QuickFixCmdpost *grep* cwindow
@@ -75,56 +13,10 @@ autocmd QuickFixCmdpost *grep* cwindow
 autocmd vimenter * CocCommand explorer --width 30
 autocmd StdinReadPre * let s:std_in=1
 
-function InitWorkspace()
-  winc h                " Move to the left pane
-  IndentLinesDisable    
-  winc l                " Move to the right pane
-  CocDiagnostics        " Open coc-diagnostic pane
-  vsplit                " Split the pane vertically
-  terminal              
-  IndentLinesDisable    " Disable indent lines in terminal
-  winc k                " Move to the left pane
-endfunction
-
-autocmd vimenter * command InitWorkspace call InitWorkspace()
-
-function Ready()
-  winc h                " Move to the left pane
-  IndentLinesDisable    
-  winc l                " Move to the right pane
-  CocDiagnostics        " Open coc-diagnostic pane
-  vsplit                " Split the pane vertically
-  terminal              
-  IndentLinesDisable    " Disable indent lines in terminal
-  winc k                " Move to the edit pane
-  call fzf#vim#files('.') " Open fzf
-endfunction
-
-autocmd vimenter * command Ready call Ready()
-
-function Wide()
-  50winc >
-endfunction
-
-autocmd vimenter * command Wide call Wide()
-
-function WideSuper()
-  200winc >
-endfunction
-
-autocmd vimenter * command WideSuper call WideSuper()
-
-function Shrink()
-  50winc <
-endfunction
-
-autocmd vimenter * command Shrink call Shrink()
-
-function ShrinkSuper()
-  200winc <
-endfunction
-
-autocmd vimenter * command ShrinkSuper call ShrinkSuper()
+" Load custom functions
+" Make sure to put this after all plugins are loaded
+" Make sure to put this before settings of key bindings
+source ~/.config/nvim/functions.vim
 
 autocmd vimenter * command DisplayComma set conceallevel=0
 
@@ -160,7 +52,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 let g:neomake_python_enabled_makers = ['python', 'flake8', 'mypy']
 
-let g:blamer_template = '<committer>, <committer-time> • <summary> [ <commit-short> ]'
+" let g:blamer_template = '<committer>, <committer-time> • <summary> [ <commit-short> ]'
 let g:blamer_date_format = '%Y-%m-%d %H:%M'
 
 if (has("termguicolors"))
