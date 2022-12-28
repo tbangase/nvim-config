@@ -42,7 +42,8 @@ let g:coc_global_extensions = [
   \ 'coc-jedi',
   \ 'coc-prettier',
   \ ]
-"  \ 'coc-solidity',
+  " \ 'coc-elixir',
+  " \ 'coc-solidity',
 
 let g:airline_theme = 'tender'
 
@@ -188,6 +189,7 @@ set statusline+=%y
 set clipboard+=unnamed
 set printoptions=number:y
 set path+=$PWD/**
+set wfh
 
 set list
 set listchars=tab:>-
@@ -206,8 +208,10 @@ inoremap <C-h> <esc>vb
 inoremap <C-l> <esc>ve
 tnoremap <esc> <C-\><C-n>
 nnoremap <S-e> $
-noremap <M-l> :Wide<CR>
-noremap <M-h> :Shrink<CR>
+noremap <M-C-l> :Wide<CR>
+noremap <M-C-h> :Shrink<CR>
+noremap <M-C-k> :Shorter<CR>
+noremap <M-C-j> :Taller<CR>
 noremap <M-p> :Files<CR>
 
 "Using Regular Expression"

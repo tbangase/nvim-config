@@ -54,3 +54,18 @@ function ShrinkSuper()
 endfunction
 
 autocmd vimenter * command ShrinkSuper call ShrinkSuper()
+
+
+function Taller()
+  5winc +
+endfunction
+
+autocmd vimenter * command Taller call Taller()
+
+function Shorter()
+  5winc -
+endfunction
+
+autocmd vimenter * command Shorter call Shorter()
+
+

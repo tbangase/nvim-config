@@ -49,9 +49,13 @@ Plug 'rust-lang/rust.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/rust-tools.nvim'
 
+" Plugins for Protobuf
+Plug 'uarun/vim-protobuf'
+
 " Plugins for Elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'mattreduce/vim-mix'
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
 " Plugins for Testing
 Plug 'vim-test/vim-test'
