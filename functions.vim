@@ -3,17 +3,24 @@ function InitWorkspace()
   winc h                " Move to the left pane
   IndentLinesDisable    
   winc l                " Move to the right pane
-  split
-  winc j                " Move to the down pane
-  17winc -
-  " CocDiagnostics        " Open coc-diagnostic pane
+  CocDiagnostics        " Open coc-diagnostic pane
+  3winc -
   " vsplit                " Split the pane vertically
-  terminal              
+  " split
+  " winc j                " Move to the down pane
+  " 17winc -
+  " terminal              
   IndentLinesDisable    " Disable indent lines in terminal
-  winc k                " Move to the left pane
+  winc k                " Move to the up pane
 endfunction
 
 autocmd vimenter * command InitWorkspace call InitWorkspace()
+
+function Path()
+  echo expand('%:p')
+endfunction
+
+autocmd vimenter * command Path call Path()
 
 function Ready()
   winc h                " Move to the left pane
