@@ -7,6 +7,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'cespare/vim-toml'
 Plug 'kylef/apiblueprint.vim'
 
+" Coercion plugin
+Plug 'tpope/vim-abolish'
+
 Plug 'github/copilot.vim'
 Plug 'APZelos/blamer.nvim'
 Plug 'guns/xterm-color-table.vim'
@@ -26,6 +29,9 @@ Plug 'imsnif/kdl.vim'
 
 " File Search
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" GPT Plugin
+Plug 'aduros/ai.vim'
 
 " Setup for flutter
 Plug 'dart-lang/dart-vim-plugin'

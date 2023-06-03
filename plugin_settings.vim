@@ -9,10 +9,11 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-yaml',
   \ 'coc-html',
-  \ 'coc-rust-analyzer',
+  "\ 'coc-rust-analyzer',
   \ 'coc-sourcekit',
   \ 'coc-jedi',
   \ 'coc-prettier',
+  \ 'coc-protobuf',
   \ '@yaegassy/coc-tailwindcss3',
   \ ]
   " \ 'coc-elixir',

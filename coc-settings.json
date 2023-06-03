@@ -1,11 +1,6 @@
 {
   "coc.preferences.formatOnSave": true,
   "hover.target": "float",
-  "rust-analyzer.enable": true,
-  "rust-analyzer.linkedProjects": ["./Cargo.toml"],
-  "rust-analyzer.checkOnSave.enable": false,
-  "rust-analyzer.checkOnSave.allTargets": true,
-  "rust-analyzer.checkOnSave.target": "x86_64-unknown-linux-gnu",
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "languageserver": {

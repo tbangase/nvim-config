@@ -1,11 +1,13 @@
 vim.cmd("source ~/.config/nvim/plugins.vim")
 vim.cmd("execute pathogen#infect()")
 
-
 vim.cmd("source ~/.config/nvim/fzf.vim")
 vim.cmd("source ~/.config/nvim/functions.vim")
 vim.cmd("source ~/.config/nvim/plugin_settings.vim")
 vim.cmd("source ~/.config/nvim/keymaps.vim")
+
+require("package-manager")
+require("lsp-config")
 
 require("autocmd")
 require("colorscheme")
@@ -41,4 +43,15 @@ vim.opt.statusline = vim.o.statusline .. "%<%F"
 vim.opt.statusline = vim.o.statusline .. "[%{&fileformat}]"
 vim.opt.statusline = vim.o.statusline .. "%y"
 vim.opt.path = vim.o.path .. "$PWD/**"
+
+_G.source_local_init_lua = function()
+  local current_file = vim.fn.expand("%:p:h")
+  local local_init_lua = vim.fn.findfile(".init.lua", current_file .. ";")
+
+  if local_init_lua ~= "" then
+    vim.cmd("luafile " .. local_init_lua)
+  end
+end
+
+vim.cmd("autocmd BufReadPost * lua source_local_init_lua()")
 

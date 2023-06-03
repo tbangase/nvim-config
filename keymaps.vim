@@ -30,8 +30,13 @@ vmap ( di(jjpF(
 vmap { di{jjpF{
 vmap [ di[jjpF[
 
+" Text substitute
 vmap C yV:s/<C-r>"//g<LEFT><LEFT>
 vmap S :s/<C-r>"//g<LEFT><LEFT>
+
+" Case converting
+vmap U :s/\v(_\|^)(.)/\u\2/g<CR>:noh<CR>
+"vmap D :s/\v([a-z]\@=)([A-Z])/\1_\l\2/g<CR>:noh<CR>
 
 " For Flutter
 nnoremap <leader>fa :FlutterRun<cr>
