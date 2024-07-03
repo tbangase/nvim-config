@@ -6,6 +6,13 @@ require("packer").startup(function()
 	use 'neovim/nvim-lspconfig'
 	use "lukas-reineke/lsp-format.nvim"
 
+  -- use 'williamboman/mason.nvim'
+  -- use 'williamboman/mason-lspconfig.nvim'
+
+  -- use "hrsh7th/nvim-cmp"
+  -- use "hrsh7th/cmp-nvim-lsp"
+  -- use "hrsh7th/vim-vsnip"
+
 	-- Flutter
 	use {
     'akinsho/flutter-tools.nvim',

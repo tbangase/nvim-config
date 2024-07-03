@@ -1,4 +1,6 @@
 "Key mappings"
+let maplocalleader=","
+
 map <silent> <C-m> :CocCommand explorer<CR>
 
 map <silent> gd <Plug>(coc-definition)
@@ -26,9 +28,13 @@ inoremap kk <ESC><RIGHT>a
 nnoremap <S-l> ]m
 nnoremap <S-h> [m
 
-vmap ( di(jjpF(
-vmap { di{jjpF{
-vmap [ di[jjpF[
+vmap ( c(jjpF(
+vmap { c{jjpF{
+vmap [ c[jjpF[
+vmap < c<>jjpF<
+vmap " c"jjpF"
+vmap ' c'jjpF'
+vmap ` c`jjpF`
 
 " Text substitute
 vmap C yV:s/<C-r>"//g<LEFT><LEFT>
@@ -54,6 +60,7 @@ inoremap ( ()<LEFT>
 inoremap <> <><LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
+inoremap ` ``<LEFT>
 inoremap <C-h> <esc>vb
 inoremap <C-l> <esc>ve
 tnoremap <esc> <C-\><C-n>

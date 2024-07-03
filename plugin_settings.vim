@@ -2,20 +2,20 @@
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-explorer',
-  \ 'coc-tsserver',
-  \ 'coc-eslint',
   \ 'coc-json',
   \ 'coc-flutter',
   \ 'coc-snippets',
-  \ 'coc-yaml',
   \ 'coc-html',
-  "\ 'coc-rust-analyzer',
   \ 'coc-sourcekit',
   \ 'coc-jedi',
-  \ 'coc-prettier',
   \ 'coc-protobuf',
+  \ 'coc-rust-analyzer',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
   \ '@yaegassy/coc-tailwindcss3',
   \ ]
+  " \ 'coc-yaml',
   " \ 'coc-elixir',
   " \ 'coc-solidity',
 
@@ -29,6 +29,8 @@ let g:neomake_python_enabled_makers = ['python', 'flake8', 'mypy']
 
 " let g:blamer_template = '<committer>, <committer-time> • <summary> [ <commit-short> ]'
 let g:blamer_date_format = '%Y-%m-%d %H:%M'
+
+let g:copilot_filetypes = {'yaml': v:true, 'markdown': v:true}
 
 if (has("termguicolors"))
  set termguicolors

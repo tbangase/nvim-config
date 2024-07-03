@@ -13,12 +13,17 @@ vim.cmd("colorscheme tender")
 vim.cmd("hi Normal guibg=none ctermbg=none")
 vim.cmd("hi NonText guibg=none ctermbg=none")
 vim.cmd("hi LineNr guibg=none ctermbg=none")
-vim.cmd("hi CursorLine guibg=#50001a ctermbg=53")
 vim.cmd("hi SignColumn guibg=none ctermbg=none")
 vim.cmd("hi Folded guibg=none ctermbg=none")
 vim.cmd("hi VertSplit guibg=none ctermbg=none")
 vim.cmd("hi EndOfBuffer guibg=none ctermbg=none")
 
+vim.cmd("hi CursorLine guibg=#50001a ctermbg=53")
+-- vim.cmd("hi DiagnosticError ctermfg=203 guifg=#f43753")
+vim.cmd("hi CocErrorSign guifg=red")
+vim.cmd("hi DiagnosticError guifg=#ff75ec")
+
+-- hi Exception ctermfg=203 guifg=#f43753
 -- hi Normal ctermbg=none guibg = none
 -- hi NonText ctermbg=none guibg = none
 -- hi LineNr ctermbg=none guibg = none

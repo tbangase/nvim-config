@@ -26,8 +26,10 @@ local options = {
 	autoindent = true,
 	whichwrap = "b,s,<,>,[,],h,l",
 	wfh = true,
+	expandtab = true,
 	foldmethod = "indent",
 	laststatus = 2,
+  nrformats = "alpha",
 }
 
 for k, val in pairs(options) do

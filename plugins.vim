@@ -33,6 +33,9 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " GPT Plugin
 Plug 'aduros/ai.vim'
 
+" TidalCycles Plugin
+Plug 'tidalcycles/vim-tidal'
+
 " Setup for flutter
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'

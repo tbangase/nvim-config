@@ -16,4 +16,13 @@ autocmd("vimenter", {
 	pattern="*", 
 	command="command DisplayComma set conceallevel=0",
 })
+-- autocmd FileType apache setlocal commentstring=#\ %s
+autocmd("FileType", {
+  pattern="typescriptreact", 
+  command="setlocal commentstring=//\\ %s",
+})
 
+-- autocmd("BufWritePre", {
+--   pattern="*", 
+--   command="lua vim.lsp.buf.format()",
+-- })

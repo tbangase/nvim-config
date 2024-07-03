@@ -3,6 +3,7 @@
   "hover.target": "float",
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
+  "eslint.format.enable": true,
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -19,5 +20,6 @@
       "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
       "filetypes": ["c", "cpp", "objc", "objcpp"]
     }
-  }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }
